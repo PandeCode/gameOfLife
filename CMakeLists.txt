@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.20)
+
+set(CXX_STANDARD 20)
+set(CXX_STANDARD_REQUIRED ON)
+set(CXX_EXTENSIONS ON)
+
+set(CMAKE_C_COMPILER /usr/bin/clang CACHE PATH "" FORCE)
+set(CMAKE_CXX_COMPILER /usr/bin/clang++ CACHE PATH "" FORCE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++20 -fuse-ld=lld -Wno-unused-command-line-argument") # -v
+
+set(CMAKE_C_FLAGS_INIT                "-Wall")
+set(CMAKE_C_FLAGS_DEBUG_INIT          "-g")
+set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+set(CMAKE_C_FLAGS_RELEASE_INIT        "-O3 -DNDEBUG")
+set(CMAKE_C_FLAGS_RELWITHDEBINFO_INIT "-O2 -g")
+set(CMAKE_CXX_FLAGS_INIT                "-Wall")
+set(CMAKE_CXX_FLAGS_DEBUG_INIT          "-g")
+set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE_INIT        "-O3 -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT "-O2 -g")
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+project(gameOfLife VERSION 1.0 DESCRIPTION "gameOfLife Description" LANGUAGES CXX)
+
+find_package(Threads REQUIRED)
+
+file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*)
+set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(PROJECT_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+
+message("CMAKE_THREAD_LIBS_INIT : " ${CMAKE_THREAD_LIBS_INIT})
+message("INCLUDE_DIRS           : " ${INCLUDE_DIRS})
+message("PROJECT_LIBRARIES      : " ${PROJECT_LIBRARIES})
+message("SRC_FILES              : " ${SRC_FILES})
+
+add_executable(${PROJECT_NAME} ${SRC_FILES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_LIBRARIES})
+target_compile_options(${PROJECT_NAME} PUBLIC -pthread)

@@ -1,14 +1,13 @@
 # Conway's Game of life cli
 
-## Building
-Clone the repo and cd into it.
+## Bundling 
 
 ```bash
+git clone https://github.com/PandeCode/gameOfLife/
+cd gameOfLife
 cmake -D CMAKE_EXPORT_COMPILE_COMMANDS=ON -S . -B Debug && ln -s ./Debug/compile_commands.json ./compile_commands.json  
-
 cmake --build Debug/
 ```
-
 
 ## Examaples
 ```bash

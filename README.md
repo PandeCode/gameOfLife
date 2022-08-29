@@ -9,7 +9,7 @@ cmake -D CMAKE_EXPORT_COMPILE_COMMANDS=ON -S . -B Debug && ln -s ./Debug/compile
 cmake --build Debug/
 ```
 
-## Examaples
+## Examples
 ```bash
 ./Debug/bin/gameOfLife -f states/oscillators/beacon.gol
 ./Debug/bin/gameOfLife -f states/oscillators/blinker.gol

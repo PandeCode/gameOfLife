@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/shawn/dev/cpp/CLIProjeccts/gameOfLife/Debug",
-  "command": "/usr/bin/clang++ -I/home/shawn/dev/cpp/CLIProjeccts/gameOfLife/include -std=gnu++20 -fuse-ld=lld -Wno-unused-command-line-argument -pthread -o CMakeFiles/gameOfLife.dir/src/main.cpp.o -c /home/shawn/dev/cpp/CLIProjeccts/gameOfLife/src/main.cpp",
-  "file": "/home/shawn/dev/cpp/CLIProjeccts/gameOfLife/src/main.cpp"
-}
-]

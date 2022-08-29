@@ -1,6 +1,6 @@
 # Conway's Game of life cli
 
-## Bundling 
+## Building 
 
 ```bash
 git clone https://github.com/PandeCode/gameOfLife/
